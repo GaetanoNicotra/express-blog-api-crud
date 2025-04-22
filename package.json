@@ -1,0 +1,24 @@
+{
+  "name": "express-blog-api-crud",
+  "version": "1.0.0",
+  "description": "Ciao ragazzi, esercizio di oggi: Express Blog - API CRUD (parte 1)\r repo: express-blog-api-crud\r Esercizio",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaetanoNicotra/express-blog-api-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaetanoNicotra/express-blog-api-crud/issues"
+  },
+  "homepage": "https://github.com/GaetanoNicotra/express-blog-api-crud#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
