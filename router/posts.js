@@ -1,6 +1,6 @@
 const express = require ('express');
 
-const router = express.Router;
+const router = express.Router();
 
 // definizione delle singole rotte
 
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 // rotta che mostra un posts (show)
 router.get('/:id', (req, res) => {
-   res.send('posts con id' + ' ' + 'req.params.id')
+   res.send('posts con id' + ' ' + req.params.id)
 });
 
 // rotta inserisce un nuovo post (store)
