@@ -3,13 +3,20 @@ const posts = require('../data/posts.js');
 
 // definizione funzione index
 function index(req, res) {
-    res.json(posts);
+    const tag = req.query.tags;
+    let filteredTag = posts;
+    if (tag) {
+        filteredTag = posts.filter((tagCercato)=> {
+            return tagCercato.tags.includes(tag);
+        })
+    }
+    res.json(filteredTag);
 }
 
 // definizionedella funzione show
 function show(req, res) {
     const id = parseInt(req.params.id);
-    const post = posts.find(post=> post.id === id);
+    const post = posts.find(post => post.id === id);
     res.json(post);
 }
 
@@ -31,12 +38,12 @@ function modify(req, res) {
 // definizione della funzione destroy
 function destroy(req, res) {
     const id = parseInt(req.params.id);
-    const post = posts.find(post=> post.id === id);
+    const post = posts.find(post => post.id === id);
     posts.splice(posts.indexOf(post), 1);
     console.log(posts)
 
-    res.status(204);
+    res.sendStatus(204);
 }
 
 // esporto il controller
-module.exports = { index, show, store, update, modify, destroy }
+module.exports = { index, show, store, update, modify, destroy };
