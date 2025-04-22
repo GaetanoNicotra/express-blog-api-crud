@@ -8,7 +8,9 @@ function index(req, res) {
 
 // definizionedella funzione show
 function show(req, res) {
-    res.send('posts con id' + ' ' + req.params.id);
+    const id = parseInt(req.params.id);
+    const post = posts.find(post=> post.id === id);
+    res.json(post)
 }
 
 // definizionedella funzione store
