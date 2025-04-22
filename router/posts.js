@@ -2,11 +2,13 @@ const express = require ('express');
 
 const router = express.Router();
 
+// importo il file con i posts
+const posts = require('../data/posts.js')
 // definizione delle singole rotte
 
 // rotta che mostra tutti posts (index)
 router.get('/', (req, res) => {
-    res.send('Lista dei posts')
+    res.json(posts)
 });
 
 // rotta che mostra un posts (show)
