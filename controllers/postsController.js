@@ -6,7 +6,7 @@ function index(req, res) {
     const tag = req.query.tags;
     let filteredTag = posts;
     if (tag) {
-        filteredTag = posts.filter((tagCercato)=> {
+        filteredTag = posts.filter((tagCercato) => {
             return tagCercato.tags.includes(tag);
         })
     }
@@ -17,7 +17,18 @@ function index(req, res) {
 function show(req, res) {
     const id = parseInt(req.params.id);
     const post = posts.find(post => post.id === id);
-    res.json(post);
+    console.log(post)
+    
+
+if(post === undefined){
+    res.status(404);
+    res.json({
+        error: 'Not found',
+        message: 'Post non trovato'
+    })
+
+}
+res.json(post);
 }
 
 // definizionedella funzione store
@@ -41,9 +52,13 @@ function destroy(req, res) {
     const post = posts.find(post => post.id === id);
     posts.splice(posts.indexOf(post), 1);
     console.log(posts)
-
-    res.sendStatus(204);
-}
+    if(post === undefined){
+        res.status(404);
+        res.json({
+            error: 'Not found',
+            message: 'Post non trovato'
+        })
+}}
 
 // esporto il controller
 module.exports = { index, show, store, update, modify, destroy };
