@@ -7,8 +7,8 @@ const posts = require('../data/posts.js');
 
 // importo il controller con i posts
 const postsController = require('../controllers/postsController.js');
-console.log()
-// definizione delle singole rotte
+
+// definizione delle singole rotte:
 
 // rotta che mostra tutti posts (index)
 router.get('/', postsController.index);

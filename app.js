@@ -7,7 +7,7 @@ const app = express();
 // definisco la porta del server
 const port = 3000;
 
-// recupero le rotte
+// importo le rotte
 const postsRouter = require('./router/posts.js');
 
 // utilizzo il router
