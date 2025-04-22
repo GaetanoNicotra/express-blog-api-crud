@@ -10,7 +10,7 @@ function index(req, res) {
 function show(req, res) {
     const id = parseInt(req.params.id);
     const post = posts.find(post=> post.id === id);
-    res.json(post)
+    res.json(post);
 }
 
 // definizionedella funzione store
@@ -30,7 +30,12 @@ function modify(req, res) {
 
 // definizione della funzione destroy
 function destroy(req, res) {
-    res.send(`Cancellazione di un post' ${req.params.id}`);
+    const id = parseInt(req.params.id);
+    const post = posts.find(post=> post.id === id);
+    posts.splice(posts.indexOf(post), 1);
+    console.log(posts)
+
+    res.status(204);
 }
 
 // esporto il controller
