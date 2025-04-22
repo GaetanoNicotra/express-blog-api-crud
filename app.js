@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 // recupero le rotte
-const postsRouter = require('./router/posts.js')
+const postsRouter = require('./router/posts.js');
 
 // utilizzo il router
 app.use('/posts', postsRouter);
@@ -21,4 +21,4 @@ app.get('/', (req, res) => {
 // metto in ascolto il server
 app.listen(port, () => {
     console.log(`Server in ascolto alla porta ${port}`)
-})
+});

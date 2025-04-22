@@ -1,4 +1,4 @@
-const express = require ('express');
+const express = require('express');
 
 const router = express.Router();
 
@@ -6,38 +6,27 @@ const router = express.Router();
 const posts = require('../data/posts.js');
 
 // importo il controller con i posts
-const postsController = require('../controllers/postsController.js')
+const postsController = require('../controllers/postsController.js');
+console.log()
 // definizione delle singole rotte
 
 // rotta che mostra tutti posts (index)
-router.get('/', (req, res) => {
-    res.json(posts)
-});
+router.get('/', postsController.index);
 
 // rotta che mostra un posts (show)
-router.get('/:id', (req, res) => {
-   res.send('posts con id' + ' ' + req.params.id)
-});
+router.get('/:id', postsController.show);
 
 // rotta inserisce un nuovo post (store)
-router.post('/', (req, res) => {
-    res.send('Inserimento di un nuovo post');
-});
+router.post('/', postsController.store);
 
 // rotta che modifica totalmente un post (update)
-router.put('/:id', (req, res) => {
-    res.send('Modifica totale del post' + ' ' + req.params.id);
-});
+router.put('/:id', postsController.update);
 
 // rotta che modifica parzialmente un post (modify)
-router.patch('/:id', (req, res) => {
-    res.send('Modifica parziale di un post' + ' ' + req.params.id);
-});
+router.patch('/:id', postsController.modify);
 
 // rotta che elimina un post (destroy)
-router.delete('/:id', (req, res) => {
-    res.send(`Cancellazione di un post' ${req.params.id}`);
-});
+router.delete('/:id', postsController.destroy);
 
 // esporto le rotte
 module.exports = router;
