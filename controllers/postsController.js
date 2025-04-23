@@ -34,6 +34,7 @@ function show(req, res) {
 
 // definizionedella funzione store
 function store(req, res) {
+    console.log(req.body);
     res.send('Inserimento di un nuovo post');
 }
 

@@ -13,6 +13,9 @@ const postsRouter = require('./router/posts.js');
 // utilizzo il router
 app.use('/posts', postsRouter);
 
+// uso il body parser
+app.use(express.json());
+
 // definisco la rotta base
 app.get('/', (req, res) => {
     res.send('Homepage')
