@@ -35,7 +35,26 @@ function show(req, res) {
 // definizionedella funzione store
 function store(req, res) {
     console.log(req.body);
-    res.send('Inserimento di un nuovo post');
+    // creazione id da inserire nell'elemento
+    const newId = posts[posts.length - 1].id + 1
+    // recupero con la detrutturazione i dati del nuovo oggetto (post)
+    const { title, content, image, tags } = req.body;
+    const newPost = {
+        id: newId,
+        title,
+        content,
+        image,
+        tags
+    }
+
+    // pusho il nuovo posts nell'array di ogetti originale
+    posts.push(newPost);
+
+    // invio il codice di stato
+    res.status(201);
+    // restitusico il post in formato json
+    res.json(newPost);
+    console.log(posts)
 }
 
 // definizione della funzione update
