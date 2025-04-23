@@ -66,8 +66,8 @@ function update(req, res) {
     const post = posts.find(post => post.id === id);
 
     // verifico che il post cercato con l'id recuperato esista
-    if (!posts) {
-        res.staus(404);
+    if (!post) {
+        res.status(404);
         return res.json({
             error: "Not found",
             message: "Post non trovato"
