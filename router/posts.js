@@ -5,10 +5,10 @@ const router = express.Router();
 // importo il file con i posts
 const posts = require('../data/posts.js');
 
-// importo il controller con i posts
+// importo il file controller con i posts
 const postsController = require('../controllers/postsController.js');
 
-// definizione delle singole rotte:
+// definisco le singole rotte:
 
 // rotta che mostra tutti posts (index)
 router.get('/', postsController.index);

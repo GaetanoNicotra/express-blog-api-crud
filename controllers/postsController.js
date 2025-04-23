@@ -16,7 +16,7 @@ function index(req, res) {
 
 // definizione della funzione show
 function show(req, res) {
-    // restituisvo un singolo post con il tag cercato
+    // recupero il post con il tag cercato
     const id = parseInt(req.params.id);
     const post = posts.find(post => post.id === id);
     console.log(post)
@@ -29,13 +29,14 @@ function show(req, res) {
         })
 
     }
+    // restituisco il post cercato
     res.json(post);
 }
 
 // definizionedella funzione store
 function store(req, res) {
     console.log(req.body);
-    // creazione id da inserire nell'elemento
+    // creazione dell' id da inserire nell'elemento
     const newId = posts[posts.length - 1].id + 1
     // recupero con la detrutturazione i dati del nuovo oggetto (post)
     const { title, content, image, tags } = req.body;
@@ -62,10 +63,10 @@ function update(req, res) {
     // recupero l'id inserito come paramentro
     const id = parseInt(req.params.id);
 
-    // recupero il post con l'id recuperato dal parametro
+    // recupero il post con l'id corrispondente a quello inserito come parametro
     const post = posts.find(post => post.id === id);
 
-    // verifico che il post cercato con l'id recuperato esista
+    // verifico che il post cercato con l'id recuperato esista altrimenti mostro un messaggio d'errore
     if (!post) {
         res.status(404);
         return res.json({
