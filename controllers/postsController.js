@@ -23,7 +23,7 @@ function show(req, res) {
     // creo un if per verificare se il post cercato esiste altrimenti scrivo un messaggio d'errore
     if (post === undefined) {
         res.status(404);
-        res.json({
+        return res.json({
             error: 'Not found',
             message: 'Post non trovato'
         })
@@ -59,7 +59,30 @@ function store(req, res) {
 
 // definizione della funzione update
 function update(req, res) {
-    res.send('Modifica totale del post' + ' ' + req.params.id);
+    // recupero l'id inserito come paramentro
+    const id = parseInt(req.params.id);
+
+    // recupero il post con l'id recuperato dal parametro
+    const post = posts.find(post => post.id === id);
+
+    // verifico che il post cercato con l'id recuperato esista
+    if (!posts) {
+        res.staus(404);
+        return res.json({
+            error: "Not found",
+            message: "Post non trovato"
+        });
+    }
+
+    // se il post è stato trovato modifico le propietà che mi interessano
+    post.title = req.body.title;
+    post.content = req.body.content;
+    post.image = req.body.image;
+    post.tags = req.body.tags;
+
+    // restituisco il post modificato
+    res.json(post)
+    console.log(posts)
 }
 
 // definizione della funzione modify
@@ -77,7 +100,7 @@ function destroy(req, res) {
     // creo un if per verificare se il post cercato esiste altrimenti scrivo un messaggio d'errore
     if (post === undefined) {
         res.status(404);
-        res.json({
+        return res.json({
             error: 'Not found',
             message: 'Post non trovato'
         })
