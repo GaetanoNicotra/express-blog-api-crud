@@ -10,6 +10,9 @@ const port = 3000;
 // importo le rotte dal router
 const postsRouter = require('./router/posts.js');
 
+// importazione e registrazione del middleware per la gestione delle rotte non registrate
+const errorsHandler= require('./middlewares/errorsHandlare.js');
+
 // uso il body parser
 app.use(express.json());
 
