@@ -21,6 +21,9 @@ app.get('/', (req, res) => {
     res.send('Homepage')
 });
 
+// registrazione del middleware per la gestione delle rotte non registrate
+app.use(errorsHandler);
+
 // metto in ascolto il server
 app.listen(port, () => {
     console.log(`Server in ascolto alla porta ${port}`)
