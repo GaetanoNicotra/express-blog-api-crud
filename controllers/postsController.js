@@ -3,9 +3,12 @@ const posts = require('../data/posts.js');
 
 // definizione funzione index
 function index(req, res) {
-    // definisco il sistema di filtraggio per tag
-    // *****dichiarazione funzione di prova*****
+
+    // ***** dichiarazione funzione di prova per gli errori interni
     funzioneDiProva();
+    // *****
+
+    // definisco il sistema di filtraggio per tag
     const tag = req.query.tags;
     let filteredTag = posts;
     if (tag) {
