@@ -1,4 +1,4 @@
-// dichiaro il middleware per la gestione degli errori
+// dichiaro il middleware per il controllo delle rotte non registrate
 
 function notFound(req, res, next) {
     res.status(404);

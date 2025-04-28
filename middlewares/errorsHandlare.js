@@ -1,4 +1,4 @@
-// dichiaro il middlware per il controllo delle rotte non registrate
+// dichiaro il middlware per la gestione degli errori
 
 function errorsHandler(err, req, res, next) {
     res.status(500);
