@@ -1,6 +1,6 @@
 // dichiaro il middlware per il controllo delle rotte non registrate
 
-function errorsHandler(err, req,res, next){
+function errorsHandler(err, req, res, next) {
     res.status(500);
     res.json({
         error: err.message,
@@ -8,4 +8,4 @@ function errorsHandler(err, req,res, next){
 }
 
 // esporto il middleware
-module.exports= errorsHandler;
+module.exports = errorsHandler;

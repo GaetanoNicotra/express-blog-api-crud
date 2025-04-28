@@ -10,8 +10,10 @@ const port = 3000;
 // importo le rotte dal router
 const postsRouter = require('./router/posts.js');
 
-// importazione e registrazione del middleware per la gestione delle rotte non registrate
-const errorsHandler= require('./middlewares/errorsHandlare.js');
+// importazione dei middlewares per la gestione delle rotte non registrate 
+// e per la gestione degli errori
+const errorsHandler = require('./middlewares/errorsHandlare.js');
+const notFound = require('./middlewares/notFound.js');
 
 // uso il body parser
 app.use(express.json());
@@ -24,10 +26,12 @@ app.get('/', (req, res) => {
     res.send('Homepage')
 });
 
-// registrazione del middleware per la gestione delle rotte non registrate
+// registrazione dei middlewares per la gestione delle rotte non registrate
+// e per la gestione degli errori.
 app.use(errorsHandler);
+app.use(notFound);
 
-// metto in ascolto il server
+// metto in ascolto il server di eventuali richieste
 app.listen(port, () => {
     console.log(`Server in ascolto alla porta ${port}`)
 });
