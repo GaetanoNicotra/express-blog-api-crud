@@ -13,7 +13,7 @@ const postsController = require('../controllers/postsController.js');
 // rotta che mostra tutti posts (index)
 router.get('/', postsController.index);
 
-// rotta che mostra un posts (show)
+// rotta che mostra un posts (show) 
 router.get('/:id', postsController.show);
 
 // rotta inserisce un nuovo post (store)

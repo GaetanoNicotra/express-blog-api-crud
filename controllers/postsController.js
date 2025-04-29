@@ -94,11 +94,11 @@ function update(req, res) {
 // definizione della funzione modify
 function modify(req, res) {
     res.send('Modifica parziale di un post' + ' ' + req.params.id);
-}
+} 
 
 // definizione della funzione destroy
 function destroy(req, res) {
-    // eliminazione del singolo post
+    // istruzioni per l'eliminazione del singolo post
     const id = parseInt(req.params.id);
     const post = posts.find(post => post.id === id);
     posts.splice(posts.indexOf(post), 1);

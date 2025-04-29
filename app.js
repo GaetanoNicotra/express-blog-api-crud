@@ -7,8 +7,11 @@ const app = express();
 // definisco la porta del server
 const port = 3000;
 
+// importo gli assets statici
+app.use(express.static('public'));
+
 // importo le rotte dal router
-const postsRouter = require('./router/posts.js');
+const postsRouter = require('./router/postsRouter.js');
 
 // importazione dei middlewares per la gestione delle rotte non registrate 
 // e per la gestione degli errori
